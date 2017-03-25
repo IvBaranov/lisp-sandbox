@@ -31,6 +31,30 @@
 ;; Returns REST
 (print (first '(rest '(1 2 3))))
 
+;;; Nested CAR/CDR functions.
+
+;; (cdr (cdr (car '((1 2 3) (1 2) 1)))) <=> cddar'((1 2 3) (1 2) 1)
+;; Returns 3
+(print (caddar '((1 2 3) (1 2) 1)))
+
+;; CAR, CADR, CADDR, CADDDR <=> FIRST, SECOND, THIRD, FORTH
+
+;; Returns 3
+(print (caddr '(1 2 3)))
+
+;; Returns 3
+(print (third '(1 2 3)))
+
+;;; NTH funcion. (NTH n 'list'). Returns element at n-th position.
+
+;; Returns 2
+(print (nth 1 '(1 2 3)))
+
+;;; LAST function returns the last list element.
+
+;; Returns 8
+(print (last '(2 4 8)))
+
 ;;; CONS function. Adds `head` to `tail`.
 
 ;; Returns (1 2 3)
@@ -126,7 +150,12 @@
 ;;; NULL predicate checks if list is empty.
 
 ;; Returns NIL
-(print (null (1 2 3))
+(print (null '(1 2 3)))
 
 ;; Returns T
-(print (null ())
+(print (null ()))
+
+;;; LIST creates list using provided arguments.
+
+;; Returns (NIL 6 1 (1 2))
+(print (list () (+ 1 2 3) 1 '(1 2)))
